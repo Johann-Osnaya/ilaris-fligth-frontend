@@ -12,7 +12,7 @@ function App() {
   
 
   useEffect(() => {
-    axios.get<Diary[]>('http://localhost:3001/api/diaries').then(response => {
+    axios.get<Diary[]>('https://ilaris-flight-backend.vercel.app//api/diaries').then(response => {
       setDiaries(response.data);
       setDate(new Date().toISOString().split('T')[0].toString())
     })
@@ -27,7 +27,7 @@ function App() {
         comment
       }
       setComment('')
-      axios.post<Diary>('http://localhost:3001/api/diaries', DiaryToAdd).then(response => {
+      axios.post<Diary>('https://ilaris-flight-backend.vercel.app//api/diaries', DiaryToAdd).then(response => {
         setDiaries(diaries.concat(response.data))
       })
       .catch(error => {
